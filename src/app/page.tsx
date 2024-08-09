@@ -1,3 +1,9 @@
+import { Typography } from "@mui/material";
+
 export default function Home() {
-  return <main>Hello in my project!</main>;
+  return (
+    <main>
+      <Typography>Hello boys and girls</Typography>
+    </main>
+  );
 }
