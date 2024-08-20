@@ -1,7 +1,6 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import { useEffect } from "react";
 
 export type User = {
   firstName: string;
@@ -10,15 +9,6 @@ export type User = {
 
 export default function Home() {
   const { data: session } = useSession();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("https://api.example.com/user");
-      const json = await response.json();
-      console.log("json", json);
-    };
-    void fetchData();
-  }, []);
 
   if (session) {
     return (

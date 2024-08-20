@@ -5,7 +5,7 @@ import React, { Suspense, use } from "react";
 let mockingPromise: Promise<boolean> | undefined;
 
 // if we're running in the browser, start the worker
-if (typeof window !== "undefined") {
+if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
   const { worker } = require("../mocks/browser");
   mockingPromise = worker.start();
 }

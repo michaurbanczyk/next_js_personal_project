@@ -1,27 +1,19 @@
 import { HttpResponse } from "msw";
+import getCourts from "../mocks/responses/getCourts.json";
 
-type resolverInputType = {
-  request: Request;
-  cookies: Record<string, string>;
-  params: Record<string, string[] | string>;
-};
+const getQueryString = () => window?.location?.search;
 
-export const courtsResolver = ({
-  request,
-  params,
-  cookies,
-}: resolverInputType) => {
-  console.log("request", request);
-  console.log("params", params);
-  console.log("cookies", cookies);
-  return HttpResponse.json(
-    {
-      id: "c7b3d8e0-5e0b-4b0f-8b3a-3b9f4b3d3b3d",
-      firstName: "John",
-      lastName: "Maverick",
-    },
-    {
-      status: 200,
-    }
-  );
+export const courtsResolver = () => {
+  const queryString = getQueryString();
+
+  switch (true) {
+    case queryString?.includes("SERVER_ERROR"):
+      return HttpResponse.json(null, {
+        status: 500,
+      });
+    default:
+      return HttpResponse.json(getCourts, {
+        status: 200,
+      });
+  }
 };

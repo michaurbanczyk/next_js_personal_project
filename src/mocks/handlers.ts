@@ -1,6 +1,6 @@
-import { http, HttpResponse } from "msw";
+import { http } from "msw";
 import { courtsResolver } from "@/mocks/resolvers";
 
 export const handlers = [
-  http.get("https://api.example.com/user", courtsResolver),
+  http.get("https://api.example.com/courts", courtsResolver),
 ];
