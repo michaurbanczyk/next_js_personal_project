@@ -2,6 +2,16 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { ReactNode } from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import SessionWrapper from "@/components/SessionWrapper/SessionWrapper";
+import { MSWProvider } from "@/app/msw-provider";
+
+if (process.env.NODE_ENV === "development") {
+  console.log("SERVER LISTEN");
+
+  const { server } = require("../mocks/server");
+  server.listen();
+
+  Reflect.set(fetch, "__FOO", "YES");
+}
 
 export default function RootLayout({
   children,
@@ -13,8 +23,10 @@ export default function RootLayout({
       <html lang="en">
         <body style={{ margin: 0 }}>
           <AppRouterCacheProvider>
-            <Navbar />
-            {children}
+            <MSWProvider>
+              <Navbar />
+              {children}
+            </MSWProvider>
           </AppRouterCacheProvider>
         </body>
       </html>
