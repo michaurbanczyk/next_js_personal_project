@@ -1,6 +1,7 @@
 {
   "clubs": [
     {
+      "id": 1,
       "name": "Sport Factory Park",
       "address": {
         "street": "123 Main St",
@@ -102,6 +103,146 @@
       }
     },
     {
+      "id": 2,
+      "name": "Fame Sport Club",
+      "address": {
+        "street": "456 Elm St",
+        "city": "Shelbyville",
+        "state": "IL",
+        "postalCode": "62565",
+        "country": "USA"
+      },
+      "contact": {
+        "phone": "+1-555-987-6543",
+        "email": "info@famesportclub.com"
+      },
+      "openingHours": {
+        "monday": {
+          "open": "08:00",
+          "close": "20:00"
+        },
+        "tuesday": {
+          "open": "08:00",
+          "close": "20:00"
+        },
+        "wednesday": {
+          "open": "08:00",
+          "close": "20:00"
+        },
+        "thursday": {
+          "open": "08:00",
+          "close": "20:00"
+        },
+        "friday": {
+          "open": "08:00",
+          "close": "20:00"
+        },
+        "saturday": {
+          "open": "09:00",
+          "close": "17:00"
+        },
+        "sunday": {
+          "open": "09:00",
+          "close": "15:00"
+        }
+      },
+      "areas": {
+        "tennisCourts": [
+          {
+            "courtId": "FC001",
+            "surfaceType": "Hard",
+            "playType": "Singles",
+            "indoor": true,
+            "pricing": {
+              "weekday": {
+                "08:00-12:00": 25,
+                "12:00-16:00": 30,
+                "16:00-20:00": 35
+              },
+              "weekend": {
+                "08:00-12:00": 35,
+                "12:00-16:00": 40,
+                "16:00-20:00": 45
+              }
+            }
+          },
+          {
+            "courtId": "FC002",
+            "surfaceType": "Clay",
+            "playType": "Doubles",
+            "indoor": false,
+            "pricing": {
+              "weekday": {
+                "08:00-12:00": 20,
+                "12:00-16:00": 25,
+                "16:00-20:00": 30
+              },
+              "weekend": {
+                "08:00-12:00": 30,
+                "12:00-16:00": 35,
+                "16:00-20:00": 40
+              }
+            }
+          },
+          {
+            "courtId": "FC003",
+            "surfaceType": "Grass",
+            "playType": "Singles",
+            "indoor": false,
+            "pricing": {
+              "weekday": {
+                "08:00-12:00": 22,
+                "12:00-16:00": 27,
+                "16:00-20:00": 32
+              },
+              "weekend": {
+                "08:00-12:00": 32,
+                "12:00-16:00": 37,
+                "16:00-20:00": 42
+              }
+            }
+          },
+          {
+            "courtId": "FC004",
+            "surfaceType": "Artificial Grass",
+            "playType": "Doubles",
+            "indoor": false,
+            "pricing": {
+              "weekday": {
+                "08:00-12:00": 18,
+                "12:00-16:00": 23,
+                "16:00-20:00": 28
+              },
+              "weekend": {
+                "08:00-12:00": 28,
+                "12:00-16:00": 33,
+                "16:00-20:00": 38
+              }
+            }
+          },
+          {
+            "courtId": "FC005",
+            "surfaceType": "Carpet",
+            "playType": "Singles",
+            "indoor": true,
+            "pricing": {
+              "weekday": {
+                "08:00-12:00": 24,
+                "12:00-16:00": 29,
+                "16:00-20:00": 34
+              },
+              "weekend": {
+                "08:00-12:00": 34,
+                "12:00-16:00": 39,
+                "16:00-20:00": 44
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
       "name": "Fame Sport Club",
       "address": {
         "street": "456 Elm St",

@@ -1,4 +1,4 @@
-type Address = {
+export type Address = {
   street: string;
   city: string;
   state: string;
@@ -6,12 +6,12 @@ type Address = {
   country: string;
 };
 
-type Contact = {
+export type Contact = {
   phone: string;
   email: string;
 };
 
-type OpeningHours =
+export type OpeningHours =
   | {
       open: string;
       close: string;
@@ -20,11 +20,11 @@ type OpeningHours =
       closed: boolean;
     };
 
-type Pricing = {
+export type Pricing = {
   [timeRange: string]: number;
 };
 
-type TennisCourt = {
+export type TennisCourt = {
   courtId: string;
   surfaceType: string;
   playType: string;
@@ -35,11 +35,12 @@ type TennisCourt = {
   };
 };
 
-type Areas = {
+export type Areas = {
   tennisCourts: TennisCourt[];
 };
 
-type Club = {
+export type Club = {
+  id: number;
   name: string;
   address: Address;
   contact: Contact;
@@ -55,6 +56,6 @@ type Club = {
   areas: Areas;
 };
 
-type CourtsData = {
+export type CourtsData = {
   clubs: Club[];
 };
