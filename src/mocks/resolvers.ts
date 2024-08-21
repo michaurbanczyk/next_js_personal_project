@@ -1,5 +1,6 @@
 import { HttpResponse, PathParams } from "msw";
 import getCourts from "../mocks/responses/getCourts.json";
+import { Club } from "@/types/responses/getCourts";
 
 const getQueryString = () => window?.location?.search;
 
@@ -10,13 +11,17 @@ export const courtsResolver = (
 ) => {
   const queryString = getQueryString();
   const { id } = params;
+
+  const responseData = JSON.parse(JSON.stringify(getCourts))
+  const singleData = responseData.clubs.filter((item: Club)  => item.id === parseInt(id as string))
+
   switch (true) {
     case queryString?.includes("SERVER_ERROR"):
       return HttpResponse.json(null, {
         status: 500,
       });
     default:
-      return HttpResponse.json(getCourts, {
+      return HttpResponse.json(singleData[0], {
         status: 200,
       });
   }

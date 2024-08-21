@@ -17,7 +17,7 @@ function CourtCard(props: CourtCardProps) {
   const router = useRouter();
 
   const handleGoToCourtCard = async () => {
-    router.push(`/courts/id=${id}`);
+    router.push(`/courts/${id}`);
   };
 
   return (
