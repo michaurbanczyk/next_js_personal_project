@@ -1,27 +1,46 @@
 import { HttpResponse, PathParams } from "msw";
-import getCourts from "../mocks/responses/getCourts.json";
-import { Club } from "@/types/responses/getCourts";
+import getFeatures from "./responses/getFeatures.json";
+import { Features } from "@/types/responses/getFeatures";
 
 const getQueryString = () => window?.location?.search;
 
-export const courtsResolver = (
+function waitForTimeout(milliseconds: number) {
+  return new Promise<void>((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, milliseconds);
+  });
+}
+
+export const featureResolvers = async (
   request: Request,
   params: PathParams,
   cookies: Record<string, string>
 ) => {
   const queryString = getQueryString();
-  const { id } = params;
 
-  const responseData = JSON.parse(JSON.stringify(getCourts))
-  const singleData = responseData.clubs.filter((item: Club)  => item.id === parseInt(id as string))
+  if (params?.id) {
+    const data: Features = JSON.parse(JSON.stringify(getFeatures));
+    const singleData = data.features.find((item) => item.id === params?.id);
+    return HttpResponse.json(singleData, {
+      status: 200,
+    });
+  }
 
   switch (true) {
     case queryString?.includes("SERVER_ERROR"):
       return HttpResponse.json(null, {
         status: 500,
       });
+    case queryString?.includes("ERROR"):
+      return HttpResponse.error();
+    case queryString?.includes("LOADING"):
+      await waitForTimeout(2000);
+      return HttpResponse.json(getFeatures, {
+        status: 200,
+      });
     default:
-      return HttpResponse.json(id ? singleData[0] : responseData, {
+      return HttpResponse.json(getFeatures, {
         status: 200,
       });
   }

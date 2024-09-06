@@ -1,12 +1,12 @@
 import { http } from "msw";
-import { courtsResolver } from "@/mocks/resolvers";
+import { featureResolvers } from "@/mocks/resolvers";
 
 export const handlers = [
-  http.get("https://api.example.com/courts", ({ request, params, cookies }) =>
-    courtsResolver(request, params, cookies)
+  http.get("https://api.example.com/features", ({ request, params, cookies }) =>
+    featureResolvers(request, params, cookies)
   ),
   http.get(
-    "https://api.example.com/courts/:id",
-    ({ request, params, cookies }) => courtsResolver(request, params, cookies)
+    "https://api.example.com/features/:id",
+    ({ request, params, cookies }) => featureResolvers(request, params, cookies)
   ),
 ];
