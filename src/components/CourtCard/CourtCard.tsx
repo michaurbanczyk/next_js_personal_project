@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { StyledCourtCard } from "@/components/CourtCard/CourtCard.styled";
 import { useRouter } from "next/navigation";

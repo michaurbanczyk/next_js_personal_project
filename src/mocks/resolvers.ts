@@ -21,7 +21,7 @@ export const courtsResolver = (
         status: 500,
       });
     default:
-      return HttpResponse.json(singleData[0], {
+      return HttpResponse.json(id ? singleData[0] : responseData, {
         status: 200,
       });
   }
