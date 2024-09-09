@@ -1,6 +1,5 @@
 import { HttpResponse, PathParams } from "msw";
-import getFeatures from "./responses/getFeatures.json";
-import { Features } from "@/types/responses/getFeatures";
+import getExpenses from "./responses/getExpenses.json";
 
 const getQueryString = () => window?.location?.search;
 
@@ -12,20 +11,14 @@ function waitForTimeout(milliseconds: number) {
   });
 }
 
-export const featureResolvers = async (
+export const expenseResolvers = async (
   request: Request,
   params: PathParams,
   cookies: Record<string, string>
 ) => {
   const queryString = getQueryString();
 
-  if (params?.id) {
-    const data: Features = JSON.parse(JSON.stringify(getFeatures));
-    const singleData = data.features.find((item) => item.id === params?.id);
-    return HttpResponse.json(singleData, {
-      status: 200,
-    });
-  }
+  console.log("hello");
 
   switch (true) {
     case queryString?.includes("SERVER_ERROR"):
@@ -36,11 +29,11 @@ export const featureResolvers = async (
       return HttpResponse.error();
     case queryString?.includes("LOADING"):
       await waitForTimeout(2000);
-      return HttpResponse.json(getFeatures, {
+      return HttpResponse.json(getExpenses, {
         status: 200,
       });
     default:
-      return HttpResponse.json(getFeatures, {
+      return HttpResponse.json(getExpenses, {
         status: 200,
       });
   }

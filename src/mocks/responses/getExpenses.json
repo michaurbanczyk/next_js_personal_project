@@ -1,0 +1,94 @@
+{
+  "expenses": [
+    {
+      "id": 1,
+      "description": "Grocery shopping",
+      "category": "Food",
+      "amount": 300.50,
+      "currency": "PLN",
+      "date": "2024-09-01",
+      "paymentMethod": "Credit Card"
+    },
+    {
+      "id": 2,
+      "description": "Gym membership",
+      "category": "Fitness",
+      "amount": 180.00,
+      "currency": "PLN",
+      "date": "2024-09-03",
+      "paymentMethod": "Debit Card"
+    },
+    {
+      "id": 3,
+      "description": "Internet bill",
+      "category": "Utilities",
+      "amount": 120.00,
+      "currency": "PLN",
+      "date": "2024-09-05",
+      "paymentMethod": "Bank Transfer"
+    },
+    {
+      "id": 4,
+      "description": "Lunch at a restaurant",
+      "category": "Food",
+      "amount": 150.75,
+      "currency": "PLN",
+      "date": "2024-09-07",
+      "paymentMethod": "Credit Card"
+    },
+    {
+      "id": 5,
+      "description": "Gas for car",
+      "category": "Transportation",
+      "amount": 200.00,
+      "currency": "PLN",
+      "date": "2024-09-08",
+      "paymentMethod": "Cash"
+    },
+    {
+      "id": 6,
+      "description": "Streaming service subscription",
+      "category": "Entertainment",
+      "amount": 50.00,
+      "currency": "PLN",
+      "date": "2024-09-09",
+      "paymentMethod": "Credit Card"
+    },
+    {
+      "id": 7,
+      "description": "New jacket",
+      "category": "Clothing",
+      "amount": 400.00,
+      "currency": "PLN",
+      "date": "2024-09-10",
+      "paymentMethod": "Debit Card"
+    },
+    {
+      "id": 8,
+      "description": "Electricity bill",
+      "category": "Utilities",
+      "amount": 250.00,
+      "currency": "PLN",
+      "date": "2024-09-11",
+      "paymentMethod": "Bank Transfer"
+    },
+    {
+      "id": 9,
+      "description": "Dinner with family",
+      "category": "Food",
+      "amount": 220.00,
+      "currency": "PLN",
+      "date": "2024-09-12",
+      "paymentMethod": "Cash"
+    },
+    {
+      "id": 10,
+      "description": "Monthly rent",
+      "category": "Housing",
+      "amount": 4000.00,
+      "currency": "PLN",
+      "date": "2024-09-01",
+      "paymentMethod": "Bank Transfer"
+    }
+  ]
+}
