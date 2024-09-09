@@ -18,13 +18,7 @@ export const expenseResolvers = async (
 ) => {
   const queryString = getQueryString();
 
-  console.log("hello");
-
   switch (true) {
-    case queryString?.includes("SERVER_ERROR"):
-      return HttpResponse.json(null, {
-        status: 500,
-      });
     case queryString?.includes("ERROR"):
       return HttpResponse.error();
     case queryString?.includes("LOADING"):

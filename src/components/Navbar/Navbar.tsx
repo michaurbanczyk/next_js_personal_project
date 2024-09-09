@@ -11,6 +11,7 @@ import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import AirplayIcon from "@mui/icons-material/Airplay";
 
 import { signIn, signOut, useSession } from "next-auth/react";
 
@@ -32,7 +33,7 @@ function NavBar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: "flex", mr: 1 }} />
+          <AirplayIcon sx={{ display: "flex", mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -42,14 +43,12 @@ function NavBar() {
               mr: 2,
               display: "flex",
               flexGrow: 1,
-              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
             }}
           >
-            LOGO
+            My Applications
           </Typography>
 
           <Box sx={{ flexGrow: 0 }}>
