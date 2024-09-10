@@ -15,8 +15,8 @@ export default function RootLayout({
 }>) {
   return (
     <SessionWrapper>
-      <html lang="en" style={{ backgroundColor: "#fff" }}>
-        <body>
+      <html lang="en">
+        <body style={{ backgroundColor: "#f2f5f8" }}>
           <AppRouterCacheProvider>
             <ThemeProvider theme={theme}>
               <CssBaseline />

@@ -12,7 +12,7 @@ export const StyledButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-export const StyledBox = styled(Box)(() => ({
+export const StyledBox = styled(Box)(({ theme }) => ({
   flexGrow: 1,
   padding: "80px 15%",
 }));
@@ -26,9 +26,6 @@ export const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   height: "300px",
   color: theme.palette.text.secondary,
-  ...theme.applyStyles("dark", {
-    backgroundColor: "#1A2027",
-  }),
   ":hover": {
     boxShadow:
       "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px",

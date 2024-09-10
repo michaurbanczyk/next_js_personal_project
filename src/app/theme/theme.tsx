@@ -3,24 +3,26 @@ import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
+    common: {
+      black: "#000000",
+      white: "#FFFFFF",
+    },
     primary: {
-      dark: "#f1f1f1",
-      main: "#6f7173",
-      light: "#d4d4d5",
+      dark: "#405a72",
+      main: "#5c80a3",
+      light: "#dee6ed",
     },
     secondary: {
-      main: "#b2b5b8",
-    },
-    common: {
-      black: "black",
-      white: "#dee2e6",
+      dark: "#44312e",
+      main: "#72524d",
+      light: "#b9a9a6",
     },
   },
   typography: {
     fontFamily: '"Roboto", sans-serif',
     button: {
       textTransform: "none",
-      fontWeight: "800",
+      fontWeight: "600",
     },
   },
 });
