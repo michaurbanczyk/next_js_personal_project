@@ -16,7 +16,12 @@ export default function RootLayout({
   return (
     <SessionWrapper>
       <html lang="en">
-        <body style={{ backgroundColor: "#f2f5f8" }}>
+        <body
+          style={{
+            backgroundImage: `url("background3.webp")`,
+            backgroundSize: "cover",
+          }}
+        >
           <AppRouterCacheProvider>
             <ThemeProvider theme={theme}>
               <CssBaseline />

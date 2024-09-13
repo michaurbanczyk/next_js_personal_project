@@ -25,7 +25,7 @@ const handler = NextAuth({
     },
   },
   session: {
-    maxAge: 5, // Set the session duration to 30 minutes (in seconds)
+    maxAge: 3600, // Set the session duration to 30 minutes (in seconds)
   },
 });
 

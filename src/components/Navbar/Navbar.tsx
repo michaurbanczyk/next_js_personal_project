@@ -1,6 +1,5 @@
 "use client";
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -10,10 +9,10 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import AirplayIcon from "@mui/icons-material/Airplay";
 
 import { signIn, signOut, useSession } from "next-auth/react";
+import { StyledAppbar } from "@/components/Navbar/Navbar.styled";
 
 function NavBar() {
   const { data: session } = useSession();
@@ -30,7 +29,7 @@ function NavBar() {
   };
 
   return (
-    <AppBar position="static">
+    <StyledAppbar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AirplayIcon sx={{ display: "flex", mr: 1 }} />
@@ -92,7 +91,7 @@ function NavBar() {
           </Box>
         </Toolbar>
       </Container>
-    </AppBar>
+    </StyledAppbar>
   );
 }
 export default NavBar;
