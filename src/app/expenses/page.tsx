@@ -1,12 +1,14 @@
 "use client";
 import { StyledBox } from "@/app/expenses/page.styled";
+import React from "react";
+import ExpensesTable from "@/components/ExpensesTable/ExpensesTable";
 
-function Expenses() {
+function ExpensesDashboard() {
   return (
     <StyledBox>
-      <div>Expenses</div>
+      <ExpensesTable />
     </StyledBox>
   );
 }
 
-export default Expenses;
+export default ExpensesDashboard;
