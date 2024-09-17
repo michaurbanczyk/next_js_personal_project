@@ -12,7 +12,7 @@ import MenuItem from "@mui/material/MenuItem";
 import AirplayIcon from "@mui/icons-material/Airplay";
 
 import { signIn, signOut, useSession } from "next-auth/react";
-import { StyledAppbar } from "@/components/Navbar/Navbar.styled";
+import { StyledAppbar } from "@/app/components/Navbar/Navbar.styled";
 
 function NavBar() {
   const { data: session } = useSession();

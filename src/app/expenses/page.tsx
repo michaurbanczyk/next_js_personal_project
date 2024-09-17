@@ -1,13 +1,20 @@
 "use client";
-import { StyledBox } from "@/app/expenses/page.styled";
 import React from "react";
-import ExpensesTable from "@/components/ExpensesTable/ExpensesTable";
+import ExpensesTable from "@/app/components/Expenses/ExpensesTableCard/ExpensesTable";
+import { Grid } from "@mui/material";
+
+import AddExpenseCard from "@/app/components/Expenses/AddExpenseCard/AddExpenseCard";
 
 function ExpensesDashboard() {
   return (
-    <StyledBox>
-      <ExpensesTable />
-    </StyledBox>
+    <Grid container spacing={4}>
+      <Grid item xs={6}>
+        <ExpensesTable />
+      </Grid>
+      <Grid item xs={6}>
+        <AddExpenseCard />
+      </Grid>
+    </Grid>
   );
 }
 

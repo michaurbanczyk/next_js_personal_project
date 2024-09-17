@@ -1,13 +1,11 @@
 "use client";
-import { Item, StyledBox } from "@/app/page.styled";
-import SignIn from "@/components/SignIn/SignIn";
+import { Item } from "@/app/page.styled";
+import SignIn from "@/app/components/SignIn/SignIn";
 
 export default function Home() {
   return (
-    <StyledBox>
-      <Item>
-        <SignIn />
-      </Item>
-    </StyledBox>
+    <Item>
+      <SignIn />
+    </Item>
   );
 }

@@ -1,4 +1,15 @@
-export async function getExpenses(): Promise<ExpensesResponse[]> {
-  const response = await fetch("https://api.example.com/expenses");
-  return await response.json();
+import axios from "axios";
+
+type getExpensesParamsType = {
+  page: number;
+  pageSize: number;
+};
+
+export async function getExpenses(
+  params: getExpensesParamsType
+): Promise<ExpensesResponse> {
+  const { data } = await axios.get("https://api.example.com/expenses", {
+    params,
+  });
+  return data;
 }

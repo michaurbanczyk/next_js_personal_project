@@ -4,8 +4,9 @@ import { useQuery } from "@tanstack/react-query";
 import { getExpenses } from "@/app/api/queries/getExpenses";
 import React, { useEffect } from "react";
 import { Alert, CircularProgress, Snackbar } from "@mui/material";
+import Card from "@/app/components/_common/Card/Card";
 
-const columns: GridColDef<(typeof rows)[number]>[] = [
+const columns: GridColDef[] = [
   {
     field: "description",
     headerName: "Description",
@@ -42,7 +43,7 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
 function ExpensesTable() {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["getExpenses"],
-    queryFn: getExpenses,
+    queryFn: () => getExpenses({ page: 1, pageSize: 10 }),
   });
 
   const [open, setOpen] = React.useState(false);
@@ -54,38 +55,39 @@ function ExpensesTable() {
   }, [isError]);
 
   return (
-    <div style={{ maxWidth: "750px" }}>
-      {isLoading && <CircularProgress sx={{ fontSize: "60px" }} />}
-      <DataGrid
-        rows={data?.expenses}
-        columns={columns}
-        onRowClick={(details) => console.log(details)}
-        initialState={{
-          pagination: {
-            paginationModel: {
-              pageSize: 5,
+    <Card title={"Expenses Table"} subtitle={"See your last 10 expenses"}>
+      <div>
+        {isLoading && <CircularProgress sx={{ fontSize: "60px" }} />}
+        <DataGrid
+          rows={data?.expenses}
+          columns={columns}
+          onRowClick={(details) => console.log(details)}
+          initialState={{
+            pagination: {
+              paginationModel: {
+                pageSize: 5,
+              },
             },
-          },
-        }}
-        pageSizeOptions={[5]}
-        disableRowSelectionOnClick
-      />
-
-      <Snackbar
-        open={open}
-        autoHideDuration={6000}
-        onClose={() => setOpen(false)}
-      >
-        <Alert
+          }}
+          pageSizeOptions={[5]}
+          disableRowSelectionOnClick
+        />
+        <Snackbar
+          open={open}
+          autoHideDuration={6000}
           onClose={() => setOpen(false)}
-          severity="error"
-          variant="filled"
-          sx={{ width: "100%" }}
         >
-          We have problem with loading your data :(
-        </Alert>
-      </Snackbar>
-    </div>
+          <Alert
+            onClose={() => setOpen(false)}
+            severity="error"
+            variant="filled"
+            sx={{ width: "100%" }}
+          >
+            We have problem with loading your data :(
+          </Alert>
+        </Snackbar>
+      </div>
+    </Card>
   );
 }
 

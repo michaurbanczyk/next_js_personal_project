@@ -1,12 +1,12 @@
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { ReactNode } from "react";
-import SessionWrapper from "@/components/SessionWrapper/SessionWrapper";
+import SessionWrapper from "@/app/components/SessionWrapper/SessionWrapper";
 import { MSWProvider } from "@/app/msw-provider";
 import ReactQueryProvider from "./query-provider";
 import { ThemeProvider } from "@mui/system";
 import theme from "@/app/theme/theme";
 import CssBaseline from "@mui/material/CssBaseline";
-import Navbar from "@/components/Navbar/Navbar";
+import Navbar from "@/app/components/Navbar/Navbar";
 
 export default function RootLayout({
   children,
@@ -28,7 +28,16 @@ export default function RootLayout({
               <ReactQueryProvider>
                 <MSWProvider>
                   <Navbar />
-                  {children}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      padding: "80px",
+                    }}
+                  >
+                    {children}
+                  </div>
                 </MSWProvider>
               </ReactQueryProvider>
             </ThemeProvider>
