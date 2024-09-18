@@ -8,10 +8,10 @@ import AddExpenseCard from "@/app/components/Expenses/AddExpenseCard/AddExpenseC
 function ExpensesDashboard() {
   return (
     <Grid container spacing={4}>
-      <Grid item xs={6}>
+      <Grid item xs={9}>
         <ExpensesTable />
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={3}>
         <AddExpenseCard />
       </Grid>
     </Grid>
