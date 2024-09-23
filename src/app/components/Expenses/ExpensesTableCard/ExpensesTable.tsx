@@ -5,6 +5,7 @@ import { getExpenses } from "@/app/api/queries/getExpenses";
 import React, { useEffect } from "react";
 import { Alert, CircularProgress, Snackbar } from "@mui/material";
 import Card from "@/app/components/_common/Card/Card";
+import PaidIcon from "@mui/icons-material/Paid";
 
 const columns: GridColDef[] = [
   {
@@ -55,7 +56,11 @@ function ExpensesTable() {
   }, [isError]);
 
   return (
-    <Card title={"Expenses Table"} subtitle={"See your last 10 expenses"}>
+    <Card
+      title="Expenses"
+      subtitle={"Your last expenses"}
+      icon={<PaidIcon fontSize="large" />}
+    >
       <div>
         {isLoading && <CircularProgress sx={{ fontSize: "60px" }} />}
         <DataGrid

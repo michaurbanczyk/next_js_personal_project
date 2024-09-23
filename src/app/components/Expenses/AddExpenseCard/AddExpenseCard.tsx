@@ -15,20 +15,17 @@ import dayjs from "dayjs";
 import { StyledGrid } from "@/app/components/Expenses/AddExpenseCard/AddExpenseCard.styled";
 import FormControl from "@mui/material/FormControl";
 import Button from "@mui/material/Button";
+import {
+  ExpenseCategoryType,
+  PaymentMethodType,
+} from "@/types/responses/getExpenses";
 
 type addExpenseInput = {
   description: string;
-  category:
-    | "Food"
-    | "Fitness"
-    | "Utilities"
-    | "Transportation"
-    | "Entertainment"
-    | "Clothing"
-    | "Housing";
+  category: ExpenseCategoryType;
   amount: number;
   date: string; // ISO Date format e.g., "2024-09-01"
-  paymentMethod: "Credit Card" | "Debit Card" | "Cash" | "Bank Transfer";
+  paymentMethod: PaymentMethodType;
 };
 
 function AddExpenseCard() {
@@ -39,8 +36,11 @@ function AddExpenseCard() {
     watch,
     formState: { errors },
   } = useForm<addExpenseInput>({});
-  const onSubmit: SubmitHandler<addExpenseInput> = (data) =>
+  const onSubmit: SubmitHandler<addExpenseInput> = (data) => {
     addNewExpense(data);
+    reset();
+  };
+
   const queryClient = useQueryClient();
 
   const { data, isLoading, isError } = useQuery({
