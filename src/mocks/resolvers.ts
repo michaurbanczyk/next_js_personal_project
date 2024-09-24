@@ -61,8 +61,16 @@ export const postExpenseResolver = async (
   cookies: Record<string, string>
 ) => {
   const requestBody = await request.json();
-  const newExpense = db.expense.create({ id: uuidv4(), ...requestBody });
-  return HttpResponse.json(newExpense, {
-    status: 201,
-  });
+  const queryString = getQueryString();
+
+  switch (true) {
+    case queryString?.includes("ADD_NEW_EXPENSE_FAILURE"):
+      return HttpResponse.error();
+    default:
+      console.log("new expense");
+      const newExpense = db.expense.create({ id: uuidv4(), ...requestBody });
+      return HttpResponse.json(newExpense, {
+        status: 201,
+      });
+  }
 };
